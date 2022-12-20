@@ -1,0 +1,108 @@
+IP
+116.6.193.100:33390
+
+alex
+#alex88BB#
+sonny
+@sonny00OO@
+
+*run docker env:
+docker run -it 370ca00d40fd /bin/bash
+
+
+docker exec -it 80855e84d3fa /bin/bash
+*see all docker 
+docker ps
+
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+a13f220a3307   370ca00d40fd   "/bin/bash"   10 minutes ago   Up 10 minutes             competent_bhabha
+
+*update host to docker
+docker cp ./src/. a13f:/datvt
+docker cp a13f:/datvt/ota_evk ./ota
+*see example
+ls /usr/
+*see complier
+/usr/bin/arm-linux-gnueabi
+
+*update file docker to adb
+*adb: ifconfig
+*docker :  scp ota_evk root@172.16.3.47:/data/vbd_workdir/vbd_ota/
+
+
+* run abd
+adb shell
+
+* run led_example
+sled_test
+
+*push to adb
+adb push C:/example/new datvt
+** With file
+chmod 777 datvt/new  
+** With folder
+chmod -R 777 datvt/new
+
+*onb wifi
+chmod -R 777 /data/vbd_workdir
+
+cd /data/vbd_workdir/
+
+./ConnectivityServer 8080 &
+
+curl 'http://localhost:8080/wifi-connect-request?ssid=VinBigdata-Guest&psk=123456a@'
+
+ping 8.8.8.8
+
+
+*New board
+root@172.16.0.214
+
+LD_LIBRARY_PATH=/bkupgrade/vbd_workdir/lib/common_lib /bkupgrade/vbd_workdir/onbo_ble/connected_app_ble
+
+
+*Ota
+
+Data/vbd_workdir/lib/common_lib  ./ota_evk Config/ Config/
+
+Kết nối wifi cho adb
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant DISCONNECT
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant remove_network all
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant add_network
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant set_network 0 ssid '"VinBigdata-Guest"'
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant set_network 0 psk '"123456a@"'
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant set_network 0 key_mgmt WPA-PSK
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant select_network 0
+
+
+
+dhcpcd wlan0
+wpa_cli -iwlan0 -p/tmp/wpa_supplicant status
+
+*Setup mqtt server
+cd /data/vbd_workdir/common/mosquitto/
+./mosquitto -c mosquitto.conf
+./mosquitto -c mosquitto.conf &
+
+Chayj prog
+LD_LIBRARY_PATH=/data/vbd_workdir/lib/common_lib/ ./ota_evk Config/ Config/
+
+
+
+
+curl --location --request POST 'http://172.16.3.59:8080/api/v1/va_gateways/va_agents/1651122930137658893/devices/1670658460254673460' \
+--header 'token: va_access_token' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fw_release_version_id": 1669018510049050794,
+    "app_package_name": "firmware-app-name",
+    "app_version": 123
+}'
+
+
+curl --location --request GET 'http://172.16.3.59:8080/api/v1/va_gateways/va_agents/1651122930137658893/devices/1670658460254673460/release_versions/1668828509552917510' \
+--header 'token: va_access_token'
+
+curl --location --request GET 'http://172.16.3.59:8080/api/v1/va_gateways/va_agents/1651122930137658893/devices/1670658460254673460/release_versions/1668828509552917510/download?redirect=false \
+--header 'token: va_access_token'
+http://172.16.3.59:8080/api/v1/va_gateways/va_agents/1651122930137658893/devices/1670658460254673460/release_versions/1669018510049050794
