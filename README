@@ -1,0 +1,10 @@
+step 1: Build
+bash script/build.sh
+
+Step 2:  và database
+copy AlexaClientSDKConfig.json to sdk-install/AlexaClientSDKConfig.json
+copy database to ./sdk-build/app_build/Intergartion
+
+
+Step 3: Run
+./sdk-build/app_build/SampleApp/src/SampleApp  sdk-install/AlexaClientSDKConfig.json

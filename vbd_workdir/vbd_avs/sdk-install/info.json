@@ -1,0 +1,7 @@
+{
+	"product_id": "VinBigdata-Speaker-123456",
+	"interface": "/sys/class/net/wlan0/address",
+	"device_serial_number": "JNGKDKGSD8352FJK",
+	"sha256_code": "skZ5Tipu_rQOW1I2WhAnPrU5-ofKPzMcMnUWRXF_3DEeAVW8OT4Vdo76Qkv66cUP-9s3Uc2cw1KmPhba6CGDBtT3wyuqUOXIxOe8sVOJ7ujyqY_JyUU1leeEJe-FTi9N",
+        "url_info": "/opt/onboarding_wifi/config/info.json"
+}

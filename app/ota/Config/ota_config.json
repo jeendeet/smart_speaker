@@ -1,0 +1,8 @@
+{
+  "url_base": "http://adapter.staging.luci.vn/",
+  "url_ota_check_update":"/ota/check-update-ota",
+  "url_ota_update_status":"/ota/update-ota-status",
+  "api_key" : "Y537Z9L6IU67JVOVF5CP",
+  "time_request": 1,
+  "random_time":30
+}

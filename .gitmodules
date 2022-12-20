@@ -1,0 +1,3 @@
+[submodule "sdk-source/vss-device-sdk"]
+	path = sdk-source/vss-device-sdk
+	url = git@bitbucket.org:vinbdi-slp/vss-device-sdk.git

@@ -1,0 +1,16 @@
+{
+    "http_response":
+    {
+        "server_name": "vinspeaker",
+        "last_modified_server": "Wed, 24 Mar 2022 16:05:58 GMT",
+        "e_tag": "56d-9989200-1132c580",
+        "content_type": "application/json; charset=utf-8",
+        "accept_ranges": "bytes",
+        "connection": "close"
+    },
+    "metadata_product":
+    {
+        "product_id": "VinBigdata-Speaker-XXXXX",
+        "interface":"/sys/class/net/wlan0/address"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "messageRequestGateway" : "https://vvs-test.vinbase.ai", 
+    "downchannelGateway" : "https://vvs-test.vinbase.ai",
+    "DEFAULT_BASE_URL_VSS_AUTH_SERVER" : "https://dev.vinbase.ai",
+    "va_agent_id": "1651122930137658893",
+    "va_release_version_id": "1652866952811182886",
+    "asr_release_version_id": "1652866972359817910",
+    "tts_release_version_id": "1652866980392293761",
+    "device_model": "speaker_01",
+    "device_info": {},
+    "device_type": "SPEAKER",
+    "device_public_key": "string",
+    "localGateway": "https://smartspeaker.bigdata.vin:8443",
+    "localAuthServer":"http://10.124.69.93:5026",
+    "profileId":"1654072189198368879"
+}

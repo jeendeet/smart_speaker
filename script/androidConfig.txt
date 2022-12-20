@@ -1,0 +1,6 @@
+# Fill the lines below to configure android build.
+PLATFORM="android"
+API_LEVEL="29"
+TARGET_SYSTEM="arm"
+DEVICE_INSTALL_PATH="/data/local/tmp/alexa_sdk"
+BUILD_TYPE="debug"

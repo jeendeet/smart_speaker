@@ -1,0 +1,174 @@
+</tmp/alsa/dmixer.conf>
+</tmp/alsa/dmicarray.conf>
+
+defaults.pcm.rate_converter "samplerate_medium"
+
+pcm.slave_device_pdm{
+    type hw
+    card 0
+    device 2
+    rate 16000
+    channels 8
+    format S16_LE
+}
+
+pcm.device_pdm {
+    type plug
+    slave.pcm "slave_device_pdm"
+}
+
+ctl.device_pdm {
+    type hw
+    card 0
+}
+
+pcm.mv_audio {
+    type hw
+    card 0
+    device 0
+}
+
+pcm_slave.mv_rate {
+    pcm mv_audio
+    rate 48000
+}
+
+pcm.rate_convert {
+    type rate
+    slave mv_rate
+}
+
+pcm.capture_input {
+    type hw
+    card 0
+    device 0
+}
+
+pcm.passthugh_plug {
+    type plug
+    slave.pcm "passthough_dsp"
+}
+
+pcm.passthough_dsp {
+    type linkplay_passthough
+    slave.pcm "hw:0,0"
+}
+
+pcm.post_input{
+    type dsnoop
+    ipc_key 2344
+    slave {
+        pcm "hw:Loopback,1,0"
+        rate 48000
+        channels 2
+        format S16_LE
+        period_time 0
+        period_size 1024
+        buffer_size 8192
+    }
+    bindings {
+        0 0
+        1 1
+    }
+}
+
+pcm.post_dmixer {
+    type dmix
+    ipc_key 2049
+    slave {
+        pcm "hw:0,0"
+        rate 48000
+        format S16_LE
+        channels 2
+        period_time 0
+        period_size 1024
+        buffer_size 8192
+    }
+    bindings {
+        0 0
+        1 1
+    }
+}
+
+pcm.post_default {
+    type plug
+    slave.pcm "post_asymed"
+}
+
+ctl.!post_default {
+    type hw
+    card 0
+}
+
+pcm.dsnoop_pdm{                 
+    type dsnoop                 
+    ipc_key 2347                
+    slave {                     
+        pcm "hw:0,2"            
+        rate 16000              
+        format S16_LE           
+        channels 8              
+        period_time 0   
+        period_size 1024
+        buffer_size 8192
+    }                   
+}                       
+                        
+pcm.slave_input_pdm {   
+    type route          
+    slave.pcm plug:dsnoop_pdm
+    slave.channels 8         
+    ttable.0.0 30             
+    ttable.1.1 30             
+    ttable.2.2 30             
+    ttable.3.3 30             
+    ttable.4.4 30             
+    ttable.5.5 30             
+    ttable.6.6 30             
+    ttable.7.7 30             
+}                            
+                             
+pcm.input_pdm {              
+    type plug                
+    slave.pcm "slave_input_pdm"
+}                              
+                               
+ctl.input_pdm {                
+    type hw                    
+    card 0                     
+}
+
+pcm.asymed { 
+    type asym 
+    playback.pcm "dmixer" 
+    capture.pcm "slave_input_pdm"
+} 
+
+pcm.softvol {
+    type softvol
+    slave.pcm "asymed"
+    control {
+        name "Master"
+        card 0
+    }
+    min_dB -60.0
+    max_dB 0.0
+    resolution 33
+} 
+
+pcm.!default {
+    type plug
+    slave.pcm "asymed"
+}
+
+ctl.dmixer {
+    type hw
+    card 0
+}
+
+pcm.input{
+    type dsnoop
+    ipc_key 234884
+    slave.pcm "hw:0,0" 
+}
+

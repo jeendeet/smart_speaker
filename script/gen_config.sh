@@ -1,0 +1,1 @@
+./sdk-source/avs-device-sdk-1.26.0/tools/Install/genConfig.sh sdk-install/config.json 12345 db sdk-source/avs-device-sdk-1.26.0/ sdk-install/AlexaClientSDKConfig.json -DSDK_CONFIG_MANUFACTURER_NAME="ndd" -DSDK_CONFIG_DEVICE_DESCRIPTION="pc"

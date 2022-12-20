@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "typeinfo": "c",
+        "bsa_api.h": "c",
+        "app_utils.h": "c",
+        "app_handle.h": "c"
+    }
+}

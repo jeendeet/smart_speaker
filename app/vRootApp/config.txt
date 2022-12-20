@@ -1,0 +1,54 @@
+# Root Directory contain /vbd_workdir/ folder
+ROOT_DIR=/bkupgrade/
+
+# AVS process
+vAVS_register=true
+
+vAVS_name=SampleApp
+vAVS_folder=/media/sda1/SampleApp/src
+vAVS_library=/media/sda1/libAVS82
+vAVS_alsa_hw=1
+vAVS_gstreamer_plugin=/usr/lib/arm-linux-gnueabihf/gstreamer-1.0
+vAVS_config_file=AlexaClientSDKConfig.json
+vAVS_log_file=avs
+
+# onboarding wifi process
+vOnbo_wifi_register=true
+
+vCon_wifi_name=ConnectivityServer
+vCon_wifi_folder=vbd_workdir/onbo_wifi
+vCon_wifi_library=vbd_workdir/lib/common_lib
+vCon_wifi_port=8080
+vCon_wifi_log_file=vbd_workdir/log/onbo_wifi.log
+
+# onboarding bluetooth low energy process
+# precondition for run: enable onboarding wifi process and mosquitto
+vOnbo_ble_register=true
+
+vCon_ble_name=connected_app_ble
+vCon_ble_path=vbd_workdir/onbo_ble/connected_app_ble
+vCon_ble_folder=/tmp
+vCon_ble_library=vbd_workdir/lib/common_lib
+vCon_ble_log_file=vbd_workdir/log/onbo_ble.log
+
+# mosquitto process
+vMosquitto_register=true
+
+vMosquitto_name=mosquitto
+vMosquitto_path=vbd_workdir/common/mosquitto/mosquitto
+vMosquitto_folder=/
+vMosquitto_library=vbd_workdir/lib/common_lib
+vMosquitto_file_config=vbd_workdir/common/mosquitto/mosquitto.conf
+vMosquitto_log_file=vbd_workdir/log/mosquitto.log
+
+# synchronize clock to Server
+vSyn_clock_register=true
+
+vSyn_clock_name=ntpdate
+vSyn_clock_path=vbd_workdir/common/ntp/ntpdate
+vSyn_clock_folder=/
+vSyn_clock_library=vbd_workdir/lib/common_lib
+vSyn_clock_server=172.16.2.71
+# synchronize at 12h every day
+vSyn_clock_schedule=12:00:00
+vSyn_clock_log_file=vbd_workdir/log/ntpdate.log

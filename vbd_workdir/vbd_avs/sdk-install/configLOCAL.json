@@ -1,0 +1,16 @@
+{
+    "messageRequestGateway" : "https://smartspeaker.bigdata.vin:8443", 
+    "downchannelGateway" : "https://smartspeaker.bigdata.vin:8443",
+    "DEFAULT_BASE_URL_VSS_AUTH_SERVER" : "http://10.124.68.93:5036",
+    "va_agent_id": "1650876536212807302",
+    "va_release_version_id": "1650876551123684391",
+    "asr_release_version_id": "1650939855371183941",
+    "tts_release_version_id": "1650939903849687218",
+    "device_model": "speaker_01",
+    "device_info": {},
+    "device_type": "SPEAKER",
+    "device_public_key": "string",
+    "localGateway": "https://smartspeaker.bigdata.vin:8443",
+    "localAuthServer":"http://10.124.69.93:5036",
+    "profileId":"1651906844126933722"
+}
